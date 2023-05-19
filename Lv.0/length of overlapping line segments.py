@@ -9,33 +9,84 @@ lines의 길이 = 3
 lines의 원소의 길이 = 2
 모든 선분은 길이가 1 이상입니다.
 lines의 원소는 [a, b] 형태이며, a, b는 각각 선분의 양 끝점 입니다.
-    -100 ≤ a < b ≤ 100
-    
+-100 ≤ a < b ≤ 100
+
 입출력 예
 lines	                    result
 [[0, 1], [2, 5], [3, 9]]	2
 [[-1, 1], [1, 3], [3, 9]]	0
 [[0, 5], [3, 9], [1, 10]]	8
 """
+# 첫번째 시도 코드
+# def solution(lines):
+#         answer = 0
+#         x, y, z = lines
+#         arr = []
+#         arr1 = []
+#         arr2 = []
+#         arr3 = []
 
+        
+#         for a in range(x[0], x[1]+1):
+#                 arr += [a]
+#         for a in range(y[0], y[1]+1):
+#                 arr += [a]
+#         for a in range(z[0], z[1]+1):
+#                 arr += [a]
+        
+
+#         print(arr)
+#         for a in arr:
+#                 if a not in arr1:
+#                         arr1 += [a]
+#                 else:
+#                         arr2 += [a]
+#                         answer += 1
+#         for a in arr2:
+#                 if a not in arr3:
+#                         arr3 += [a]
+#                 else:
+#                         answer -= 1
+        
+#         if x[1] == y[0]:
+#                 answer -= 1
+#         if y[1] == z[0]:
+#                 answer -= 1
+#         if answer > 1:
+#                 answer -= 1
+#         print(arr1)
+#         print(arr2)
+#         return answer
+
+# 정답코드(14점)
 def solution(lines):
         answer = 0
-        line = 0
+        arr = []
+        x, y, z = lines
+
         
-        if lines[0][1] > lines[1][0] and lines[0][1] <= lines[1][1]:
-                if lines[0][0] < lines[1][0]:
-                        line += lines[0][1] - lines[1][0]
-                else:
-                        line += lines[0][1] - lines[0][0]
-        elif  lines[0][1] >  lines[1][1]:
-                line +=  lines[1][1] - lines[1][0]
-                
-        if lines[1][1] > lines[2][0] and lines[1][1] <= lines[2][1]:
-                if lines[1][0] < lines[2][0]:
-                        line += lines[1][1] - lines[2][0]
-                else:
-                        line += lines[1][1] - lines[1][0]
-        elif  lines[1][1] >  lines[2][1]:
-                line +=  lines[2][1] - lines[2][0]
-                        
-        return line
+        for a in lines:
+                arr += a
+        nmax = max(arr)
+        nmin = min(arr)
+        print(x, y, z, nmin, nmax)
+        print(arr)
+
+        for i in range(nmin, nmax+1):
+                count = 0
+
+                if x[0] <= i < x[1]:
+                        count += 1
+                if y[0] <= i < y[1]:
+                        count += 1
+                if z[0] <= i < z[1]:
+                        count += 1
+
+                if count >= 2:
+                        answer += 1
+
+        return answer
+
+a = solution([[0, 5], [3, 9], [1, 10]])
+print(a)
+

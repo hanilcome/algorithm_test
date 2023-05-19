@@ -17,42 +17,28 @@ quiz	                                                    result
 ["19 - 6 = 13", "5 + 66 = 71", "5 - 15 = 63", "3 - 1 = 2"]	["O", "O", "X", "O"]
 """
 
-def solution(quiz):
-    answer = []
-    for s in range(len(quiz)):
-        print(quiz[s])
-        test = quiz[s].split(" ")
-        print(test)
+# def solution(quiz):
+#     answer = []
+#     for s in range(len(quiz)):
+#         print(quiz[s])
+#         test = quiz[s].split(" ")
+#         print(test)
         
-        if test[1]=="-":
-            print(int(test[0])-int(test[2]) == int(test[4]))
-            answer.append("X")
-        elif test[1]=="+":
-            print(int(test[0])+int(test[2]) == int(test[4]))
-            answer.append("O")
-    
-    
-    return answer
+#         if test[1]=="-":
+#             print(int(test[0])-int(test[2]) == int(test[4]))
+#             if (int(test[0])-int(test[2]) == int(test[4])):
+#                 answer.append("O")
+#             else:
+#                 answer.append("X")
+#         elif test[1]=="+":
+#             print(int(test[0])+int(test[2]) == int(test[4]))
+#             if (int(test[0])+int(test[2]) == int(test[4])):
+#                 answer.append("O")
+#             else:
+#                 answer.append("X")
+#     return answer
 
-a = solution(["3 - 4 = -3", "5 + 6 = 11"])
-print(a)
+# a = solution(["3 - 4 = -3", "5 + 6 = 11"])
+# print(a)
 
-a = ["3 - 4 = -3", "5 + 6 = 11"]
-b = []
-
-for s in range(len(a)):
-    print(a[s])
-    c = a[s].split(" ")
-    print(c)
-    
-    if c[1]=="-":
-        print(int(c[0])-int(c[2]) == int(c[4]))
-        b.append("X")
-    elif c[1]=="+":
-        print(int(c[0])+int(c[2]) == int(c[4]))
-        b.append("O")
-        
-        
-print(b)
-        
     
